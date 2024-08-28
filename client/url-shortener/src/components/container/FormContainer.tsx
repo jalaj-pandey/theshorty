@@ -26,7 +26,7 @@ const FormContainer:React.FunctionComponent<IFormContainerProps>= (props) => {
   }
   return (
     <div className="container mx-auto p-2">
-      <div className="bg-banner my-8 rounded-xl bg-cover ">
+      <div className="bg-teal-600 my-8 rounded-xl bg-cover ">
         <div className="w-full h-full rounded-xl p-20 backdrop-brightness-50">
           <h2 className="text-white text-4xl text-center p-4">URL SHORTENER</h2>
           <p className="text-white text-xl text-center pb-2 font-light">
