@@ -1,9 +1,9 @@
 import FormContainer from "./FormContainer.tsx"
-import { UrlData } from "../../interface/UrlData"
+import { UrlData } from "../../interface/UrlData.ts"
 import React from "react"
-import { serverUrl } from "../../helpers/Constant";
+import { serverUrl } from "../../helpers/Constant.tsx";
 import axios from "axios";
-import DataTable from "../DataTable/DataTable";
+import DataTable from "../DataTable/DataTable.tsx";
 
 const Container = () => {
     const [data, setData] = React.useState<UrlData[]>([]);
