@@ -14,6 +14,9 @@ app.use(
     cors());
 
 app.use("/api/", shortUrl);
+app.get("/", (req, res) => {
+    res.send("This is working");
+})
 
 app.listen(port, ()=>{
     console.log(`Server started successfully on port ${port}`)
