@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { UrlData } from "../../interface/UrlData";
-import { serverUrl } from "../../helpers/Constant";
+import { UrlData } from "../../interface/UrlData.ts";
+import { serverUrl } from "../../helpers/Constant.ts";
 import axios from "axios";
 
 interface IDataTableProps {
