@@ -1,7 +1,7 @@
 import FormContainer from "./FormContainer.tsx"
 import { UrlData } from "../../interface/UrlData.ts"
 import React from "react"
-import { serverUrl } from "../../helpers/Constant.tsx";
+import { serverUrl } from "../../helpers/Constant.ts";
 import axios from "axios";
 import DataTable from "../DataTable/DataTable.tsx";
 
