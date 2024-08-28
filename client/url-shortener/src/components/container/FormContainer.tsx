@@ -1,6 +1,6 @@
 import * as React from "react";
 import axios from "axios";
-import { serverUrl } from "../../helpers/Constant";
+import { serverUrl } from "../../helpers/Constant.ts";
 
 interface IFormContainerProps {
   updateReloadState: ()=> void;
