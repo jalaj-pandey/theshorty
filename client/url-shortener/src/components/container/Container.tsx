@@ -1,4 +1,4 @@
-import FormContainer from "./FormContainer"
+import FormContainer from "./FormContainer.tsx"
 import { UrlData } from "../../interface/UrlData"
 import React from "react"
 import { serverUrl } from "../../helpers/Constant";
