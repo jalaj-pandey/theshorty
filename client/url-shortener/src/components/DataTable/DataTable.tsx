@@ -23,14 +23,14 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
       return (
         <tr
           key={item._id}
-          className="border-b text-white bg-gray-600 hover:bg-white hover:text-gray-800"
+          className="border-b text-white bg-gray-600 hover:bg-gray-700"
         >
-          <td className="px-6 py-3 break-words">
+          <td className="px-4 py-3 break-words text-xs md:text-base">
             <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener">
               {item.fullUrl}
             </Link>
           </td>
-          <td className="px-6 py-3 break-words">
+          <td className="px-4 py-3 break-words text-xs md:text-base">
             <Link
               to={`${serverUrl}/shortUrl/${item.shortUrl}`}
               target="_blank"
@@ -39,14 +39,19 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
               {item.shortUrl}
             </Link>
           </td>
-          <td className="px-6 py-3">{item.clicks}</td>
-
-          <td className="px-6 py-3">
-            <div className="flex content-center">
-              <div className="cursor-pointer px-2" onClick={() => copyToClipboard(item.shortUrl)}>
+          <td className="px-4 py-3 text-xs md:text-base">
+            {item.clicks}
+          </td>
+          <td className="px-4 py-3 text-xs md:text-base">
+            <div className="flex space-x-2">
+              <button
+                className="p-2 text-blue-500 hover:text-blue-700"
+                onClick={() => copyToClipboard(item.shortUrl)}
+                aria-label="Copy URL"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -58,11 +63,15 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
                     d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
                   />
                 </svg>
-              </div>
-              <div className="cursor-pointer px-2" onClick={() => deleteUrl(item._id)}>
+              </button>
+              <button
+                className="p-2 text-red-500 hover:text-red-700"
+                onClick={() => deleteUrl(item._id)}
+                aria-label="Delete URL"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -74,7 +83,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
           </td>
         </tr>
@@ -92,9 +101,13 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
   };
 
   const deleteUrl = async (id: string) => {
-    const res = await axios.delete(`${serverUrl}/shortUrl/${id}`);
-    console.log(res);
-    updateReloadState();
+    try {
+      const res = await axios.delete(`${serverUrl}/shortUrl/${id}`);
+      console.log(res);
+      updateReloadState();
+    } catch (error) {
+      console.error("Error deleting URL:", error);
+    }
   };
 
   const handleClick = (pageNumber: number) => {
@@ -108,7 +121,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
         <li
           key={i}
           onClick={() => handleClick(i)}
-          className={`cursor-pointer inline-block px-3 py-1 mx-1 rounded-lg ${
+          className={`cursor-pointer px-3 py-1 mx-1 rounded-lg ${
             currentPage === i ? "bg-gray-700 text-white" : "bg-white text-gray-700"
           }`}
         >
@@ -120,30 +133,29 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
   };
 
   return (
-    <div className="container mx-auto pt-2 pb-10">
+    <div className="container mx-auto pt-4 pb-10 px-4">
       <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
-        <table className="w-full table-fixed text-sm text-left rtl:text-right text-gray-500">
+        <table className="w-full text-sm text-left text-gray-500 border-collapse md:text-base">
           <thead className="text-md uppercase text-gray-50 bg-gray-700">
             <tr>
-              <th scope="col" className="px-6 py-3 w-6/12">
-                FullUrl
+              <th scope="col" className="px-4 py-3 w-full md:w-1/4">
+                Full URL
               </th>
-              <th scope="col" className="px-6 py-3 w-3/12">
-                ShortUrl
+              <th scope="col" className="px-4 py-3 w-full md:w-1/4">
+                Short URL
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3 hidden md:table-cell">
                 Clicks
               </th>
-              <th scope="col" className="px-6 py-3 ">
+              <th scope="col" className="px-4 py-3 w-full md:w-1/4">
                 Actions
               </th>
             </tr>
           </thead>
-
           <tbody>{renderTableData()}</tbody>
         </table>
       </div>
-      <ul className="flex justify-center mt-4">{renderPageNumbers()}</ul>
+      <ul className="flex justify-center mt-4 space-x-2">{renderPageNumbers()}</ul>
     </div>
   );
 };
