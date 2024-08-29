@@ -46,7 +46,7 @@ const FormContainer:React.FunctionComponent<IFormContainerProps>= (props) => {
                   type="text"
                   placeholder="add your link"
                   required
-                  className="block w-full p-4 text-gray-900 ps-32 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500"
+                  className="block w-full p-4 text-gray-900 ps-24 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500"
                   value={fullUrl}
                   onChange={(e)=> setFullUrl(e.target.value)}
                 />
