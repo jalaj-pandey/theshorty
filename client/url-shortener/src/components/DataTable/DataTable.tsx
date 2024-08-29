@@ -23,7 +23,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
       return (
         <tr
           key={item._id}
-          className="border-b text-white bg-gray-600 hover:bg-gray-700"
+          className="border-b text-white bg-teal-600 hover:bg-teal-700"
         >
           <td className="px-4 py-3 break-words text-xs md:text-base">
             <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener">
