@@ -144,7 +144,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
               <th scope="col" className="px-4 py-3 w-full md:w-1/4">
                 Short URL
               </th>
-              <th scope="col" className="px-4 py-3 hidden md:table-cell">
+              <th scope="col" className="px-4 py-3 md:table-cell">
                 Clicks
               </th>
               <th scope="col" className="px-4 py-3 w-full md:w-1/4">
