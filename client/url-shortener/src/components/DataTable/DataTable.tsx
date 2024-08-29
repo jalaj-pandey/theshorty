@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { UrlData } from "../../interface/UrlData.ts";
 import { serverUrl } from "../../helpers/Constant.ts";
+import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 interface IDataTableProps {
   data: UrlData[];
@@ -91,11 +94,12 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
     });
   };
 
-  const copyToClipboard = async (url: string) => {
+const copyToClipboard = async (url: string) => {
     try {
       await navigator.clipboard.writeText(`${serverUrl}/shortUrl/${url}`);
-      alert("URL copied to clipboard");
+      toast.success("URL copied to clipboard");
     } catch (error) {
+      toast.error("Failed to copy URL");
       console.log(error);
     }
   };
@@ -103,10 +107,11 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
   const deleteUrl = async (id: string) => {
     try {
       const res = await axios.delete(`${serverUrl}/shortUrl/${id}`);
+      toast.success("Deleted Successfully");
       console.log(res);
       updateReloadState();
     } catch (error) {
-      console.error("Error deleting URL:", error);
+      toast.error("Error deleting URL:");
     }
   };
 
@@ -134,6 +139,19 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
 
   return (
     <div className="container mx-auto pt-4 pb-10 px-4">
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        className="z-50"
+      />
       <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
         <table className="w-full text-sm text-left text-slate-800 border-collapse md:text-base">
           <thead className="text-md uppercase text-gray-50 bg-slate-800">
