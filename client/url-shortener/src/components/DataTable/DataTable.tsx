@@ -122,7 +122,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
           key={i}
           onClick={() => handleClick(i)}
           className={`cursor-pointer px-3 py-1 mx-1 rounded-lg ${
-            currentPage === i ? "bg-gray-700 text-white" : "bg-white text-gray-700"
+            currentPage === i ? "bg-yellow-300 text-black" : "bg-white text-gray-700"
           }`}
         >
           {i}
@@ -136,7 +136,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
     <div className="container mx-auto pt-4 pb-10 px-4">
       <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
         <table className="w-full text-sm text-left text-slate-800 border-collapse md:text-base">
-          <thead className="text-md uppercase text-gray-50 bg-gray-700">
+          <thead className="text-md uppercase text-gray-50 bg-slate-800">
             <tr>
               <th scope="col" className="px-4 py-3 w-full md:w-1/4">
                 Full URL
