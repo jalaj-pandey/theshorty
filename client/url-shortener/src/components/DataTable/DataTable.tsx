@@ -23,7 +23,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
       return (
         <tr
           key={item._id}
-          className="border-b text-white bg-teal-600 hover:bg-teal-700"
+          className="border-b text-white bg-teal-700 hover:bg-teal-600"
         >
           <td className="px-4 py-3 break-words text-xs md:text-base">
             <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener">
@@ -135,7 +135,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
   return (
     <div className="container mx-auto pt-4 pb-10 px-4">
       <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 border-collapse md:text-base">
+        <table className="w-full text-sm text-left text-slate-800 border-collapse md:text-base">
           <thead className="text-md uppercase text-gray-50 bg-gray-700">
             <tr>
               <th scope="col" className="px-4 py-3 w-full md:w-1/4">
