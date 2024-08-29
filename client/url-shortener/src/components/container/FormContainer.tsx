@@ -32,7 +32,7 @@ const FormContainer:React.FunctionComponent<IFormContainerProps>= (props) => {
           <p className="text-white text-xl text-center pb-2 font-light">
             Transform your long, messy URLs into sleek, easy-to-share links with our free URL shortener.
           </p>
-          <p className="text-white text-sm text-center pb-4 font-light">
+          <p className="text-white text-md text-center pb-4 font-light">
             Paste your long link below, and we'll create a concise, professional URL in seconds. Ideal for sharing on social media.
           </p>
 
@@ -40,7 +40,7 @@ const FormContainer:React.FunctionComponent<IFormContainerProps>= (props) => {
             <div className="flex">
               <div className="relative w-full">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none text-slate-800">
-                  theshorty/
+                  theshorty.io/
                 </div>
                 <input
                   type="text"
