@@ -30,18 +30,17 @@ const FormContainer:React.FunctionComponent<IFormContainerProps>= (props) => {
         <div className="w-full h-full rounded-xl p-20 backdrop-brightness-50">
           <h2 className="text-white text-4xl text-center p-4">URL SHORTENER</h2>
           <p className="text-white text-xl text-center pb-2 font-light">
-            paste your untidy link to shorten it
+            Transform your long, messy URLs into sleek, easy-to-share links with our free URL shortener.
           </p>
           <p className="text-white text-sm text-center pb-4 font-light">
-            free tool to shorten a URL or reduce link, Use our Shortener to
-            create a shortened & neat
+            Simply paste your cumbersome link below and let us create a concise, professional-looking URL in seconds. Perfect for sharing on social media, emails, or anywhere you need a clean and tidy link. Start shortening your links now and make them more manageable and visually appealing.
           </p>
 
           <form onSubmit={handleSubmit}>
             <div className="flex">
               <div className="relative w-full">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-2 pointer-events-none text-slate-800">
-                  urlshortener.link
+                  theshorty/
                 </div>
                 <input
                   type="text"
